@@ -1,0 +1,399 @@
+/* ===== ANIMATED IMAGE CAROUSEL ===== */
+.image-carousel {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-container {
+  display: flex;
+  width: 300%; /* 3 images */
+  height: 100%;
+  animation: slideImages 12s infinite;
+}
+
+.carousel-slide {
+  width: 33.333%; /* 1/3 of container */
+  height: 100%;
+  position: relative;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.carousel-slide:hover img {
+  transform: scale(1.05);
+}
+
+.carousel-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: white;
+  padding: 30px 20px;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.carousel-slide:hover .carousel-overlay {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.carousel-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.carousel-description {
+  font-size: 16px;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.carousel-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carousel-indicator.active {
+  background: white;
+  transform: scale(1.2);
+}
+
+@keyframes slideImages {
+  0%, 30% { transform: translateX(0%); }
+  35%, 65% { transform: translateX(-33.333%); }
+  70%, 100% { transform: translateX(-66.666%); }
+}
+
+/* ===== FLOATING ANIMATIONS ===== */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float-delayed {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+.float-delayed {
+  animation: float-delayed 6s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+/* ===== IMAGE HOVER EFFECTS ===== */
+.image-hover-zoom {
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+}
+
+.image-hover-zoom img {
+  transition: transform 0.5s ease;
+}
+
+.image-hover-zoom:hover img {
+  transform: scale(1.1);
+}
+
+.image-hover-lift {
+  transition: all 0.3s ease;
+}
+
+.image-hover-lift:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== ROTATING IMAGE GALLERY ===== */
+.rotating-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.rotating-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.rotating-item:nth-child(1) { animation: rotateIn 0.6s ease-out; }
+.rotating-item:nth-child(2) { animation: rotateIn 0.6s ease-out 0.2s both; }
+.rotating-item:nth-child(3) { animation: rotateIn 0.6s ease-out 0.4s both; }
+.rotating-item:nth-child(4) { animation: rotateIn 0.6s ease-out 0.6s both; }
+.rotating-item:nth-child(5) { animation: rotateIn 0.6s ease-out 0.8s both; }
+.rotating-item:nth-child(6) { animation: rotateIn 0.6s ease-out 1.0s both; }
+
+@keyframes rotateIn {
+  0% {
+    opacity: 0;
+    transform: rotateY(90deg) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateY(0deg) scale(1);
+  }
+}
+
+.rotating-item:hover {
+  transform: rotateY(5deg) scale(1.05);
+}
+
+/* ===== ROTATING GALLERY IMAGE ALIGNMENT ===== */
+.rotating-gallery {
+  align-items: start; /* ensure items align at top for consistent layout */
+}
+
+.rotating-item {
+  display: block;
+}
+
+.rotating-item img {
+  display: block;
+  width: 100%;
+  height: 260px; /* consistent height on desktop */
+  object-fit: cover; /* crop/center images uniformly */
+}
+
+/* Responsive gallery image heights */
+@media (max-width: 1024px) {
+  .rotating-item img { height: 220px; }
+}
+
+@media (max-width: 768px) {
+  .rotating-item img { height: 180px; }
+  .rotating-gallery { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; padding: 12px; }
+}
+
+/* Ensure sliding panels center images and have minimum height */
+.sliding-panel img {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.image-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.6));
+  color: #fff;
+  padding: 12px 14px;
+  box-sizing: border-box;
+}
+
+.rotating-item .image-overlay h3 {
+  margin: 0 0 6px 0;
+  font-size: 18px;
+}
+
+.rotating-item .image-overlay p {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.95;
+}
+
+/* ===== PARALLAX SCROLLING ===== */
+.parallax-section {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.parallax-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  z-index: 2;
+}
+
+.parallax-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+/* ===== ANIMATED STATISTICS ===== */
+.stat-counter {
+  font-size: 48px;
+  font-weight: bold;
+  color: var(--primary-color);
+  display: inline-block;
+  min-width: 80px;
+}
+
+.stat-counter[data-target] {
+  animation: countUp 2s ease-out forwards;
+}
+
+@keyframes countUp {
+  from { content: '0'; }
+  to { content: attr(data-target); }
+}
+
+/* ===== PULSE ANIMATIONS ===== */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.pulse-animation {
+  animation: pulse 2s infinite;
+}
+
+@keyframes gentle-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.gentle-pulse {
+  animation: gentle-pulse 3s infinite;
+}
+
+/* ===== SLIDING IMAGE PANELS ===== */
+.sliding-panels {
+  display: flex;
+  height: 300px;
+  overflow: hidden;
+}
+
+.sliding-panel {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: flex 0.5s ease;
+}
+
+.sliding-panel:hover {
+  flex: 2;
+}
+
+.sliding-panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.sliding-panel:hover img {
+  transform: scale(1.1);
+}
+
+.sliding-panel .panel-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: white;
+  padding: 20px;
+  transform: translateY(100%);
+  transition: transform 0.5s ease;
+}
+
+.sliding-panel:hover .panel-overlay {
+  transform: translateY(0);
+}
+
+/* ===== MORPHING IMAGE BORDERS ===== */
+.morphing-border {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+}
+
+.morphing-border::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--primary-color), var(--accent-color), var(--success-color));
+  border-radius: inherit;
+  z-index: -1;
+  animation: morphingBorder 3s infinite;
+}
+
+@keyframes morphingBorder {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(90deg); }
+  50% { transform: rotate(180deg); }
+  75% { transform: rotate(270deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+@media (max-width: 768px) {
+  .image-carousel {
+    height: 250px;
+  }
+
+  .parallax-section {
+    height: 250px;
+    background-attachment: scroll; /* Disable parallax on mobile */
+  }
+
+  .sliding-panels {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .sliding-panel {
+    height: 200px;
+  }
+
+  .stat-counter {
+    font-size: 36px;
+  }
+}

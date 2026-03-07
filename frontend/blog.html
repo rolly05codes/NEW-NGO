@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News & Blog - Yashwant Rural Development Society</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- Header & Navigation -->
+  <header>
+    <div class="navbar">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">🛟</div>
+        <div>YRDS</div>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="disaster-management.html">Disasters</a></li>
+          <li><a href="blog.html">News & Updates</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-buttons">
+        <a href="donate.html" class="btn btn-secondary">Donate</a>
+        <a href="volunteer.html" class="btn btn-primary">Volunteer</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>News & Updates</h1>
+    <p>Stay informed about our latest activities and disaster alerts</p>
+  </section>
+
+  <!-- Blog Posts -->
+  <section class="section">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 40px;">
+        <!-- Main Content -->
+        <div>
+          <h2 class="section-title" style="text-align: left;">Latest Updates</h2>
+          <div id="blogPosts" style="display: grid; gap: 30px;">
+            <!-- Blog posts will load here -->
+            <div class="card">
+              <div class="card-image">📰</div>
+              <div class="card-body">
+                <span class="badge badge-primary">Loading...</span>
+                <h3 class="card-title">Loading news...</h3>
+                <p class="card-text">Please wait for news updates...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div>
+          <h3 style="margin-bottom: 20px;">Filter by Category</h3>
+          <div style="display: grid; gap: 10px;">
+            <button class="btn btn-sm" style="background: var(--accent-color); color: white; text-align: left;">🚨 Disaster Alerts</button>
+            <button class="btn btn-sm" style="background: #95a5a6; color: white; text-align: left;">🤝 NGO Activities</button>
+            <button class="btn btn-sm" style="background: #95a5a6; color: white; text-align: left;">📚 Awareness</button>
+            <button class="btn btn-sm" style="background: #95a5a6; color: white; text-align: left;">📢 Press Releases</button>
+            <button class="btn btn-sm" style="background: #95a5a6; color: white; text-align: left;">🎉 Events</button>
+          </div>
+
+          <h3 style="margin-top: 40px; margin-bottom: 20px;">Subscription</h3>
+          <div style="background: var(--light-bg); padding: 20px; border-radius: var(--border-radius);">
+            <p style="margin-bottom: 15px; font-size: 14px;">Subscribe to get latest updates:</p>
+            <input type="email" placeholder="Your email" style="margin-bottom: 10px;">
+            <button class="btn btn-primary" style="width: 100%;">Subscribe</button>
+          </div>
+
+          <h3 style="margin-top: 40px; margin-bottom: 20px;">Featured</h3>
+          <div style="background: linear-gradient(135deg, var(--primary-color), var(--accent-color)); color: white; padding: 20px; border-radius: var(--border-radius);">
+            <h4 style="margin-bottom: 10px; color: white;">Emergency Preparedness Guide</h4>
+            <p style="font-size: 13px; margin-bottom: 15px;">Download our comprehensive guide on disaster preparedness.</p>
+            <button class="btn" style="background: white; color: var(--primary-color); width: 100%;">Download PDF</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Contact Info</h4>
+          <p>📞 <strong>+91 9949961938</strong></p>
+          <p>📧 <strong>info@yashwantngo.org</strong></p>
+        </div>
+        <div class="footer-section">
+          <h4>Categories</h4>
+          <ul>
+            <li>Disaster Alerts</li>
+            <li>NGO Activities</li>
+            <li>Awareness Articles</li>
+            <li>Press Releases</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Yashwant Rural Development Society. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Loader -->
+  <div id="loader" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 9999;">
+    <div class="loader"></div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

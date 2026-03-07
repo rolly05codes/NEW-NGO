@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Become a Volunteer - Yashwant Rural Development Society</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- Header & Navigation -->
+  <header>
+    <div class="navbar">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">🛟</div>
+        <div>YRDS</div>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="disaster-management.html">Disasters</a></li>
+          <li><a href="blog.html">News & Updates</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-buttons">
+        <a href="donate.html" class="btn btn-secondary">Donate</a>
+        <a href="volunteer.html" class="btn btn-primary">Volunteer</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Join Our Volunteer Team</h1>
+    <p>Make a direct impact in disaster relief and community recovery</p>
+  </section>
+
+  <!-- Volunteer Content -->
+  <section class="section">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start;">
+        <!-- Left Side: Volunteer Benefits -->
+        <div>
+          <h2 style="font-size: 32px; margin-bottom: 20px;">Why Volunteer With Us?</h2>
+          <p style="margin-bottom: 20px; line-height: 1.8;">Being a volunteer gives you the opportunity to directly help communities in need. You'll gain valuable experience, meet like-minded people, and make a lasting difference in people's lives.</p>
+          
+          <h3 style="margin-top: 30px; margin-bottom: 15px;">Volunteer Roles:</h3>
+          <ul style="list-style: none; margin-bottom: 30px;">
+            <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
+              <span style="position: absolute; left: 0; color: var(--primary-color); font-weight: bold;">🏥</span>
+              <strong>Medical Teams</strong> - Healthcare professionals and support staff
+            </li>
+            <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
+              <span style="position: absolute; left: 0; color: var(--primary-color); font-weight: bold;">🔍</span>
+              <strong>Search & Rescue</strong> - Trained rescue and recovery teams
+            </li>
+            <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
+              <span style="position: absolute; left: 0; color: var(--primary-color); font-weight: bold;">📦</span>
+              <strong>Relief Distribution</strong> - Help distribute food, water, and supplies
+            </li>
+            <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
+              <span style="position: absolute; left: 0; color: var(--primary-color); font-weight: bold;">🏗️</span>
+              <strong>Reconstruction</strong> - Rebuild homes and infrastructure
+            </li>
+            <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
+              <span style="position: absolute; left: 0; color: var(--primary-color); font-weight: bold;">📚</span>
+              <strong>Education Support</strong> - Support education and counseling programs
+            </li>
+          </ul>
+
+          <h3 style="margin-bottom: 15px;">Benefits:</h3>
+          <ul style="list-style: none;">
+            <li style="margin-bottom: 10px;">✓ Free training and certification</li>
+            <li style="margin-bottom: 10px;">✓ Insurance coverage during missions</li>
+            <li style="margin-bottom: 10px;">✓ Food and accommodation provided</li>
+            <li style="margin-bottom: 10px;">✓ Certificate of appreciation</li>
+            <li style="margin-bottom: 10px;">✓ Work experience in disaster management</li>
+          </ul>
+        </div>
+
+        <!-- Right Side: Registration Form -->
+        <div style="background: var(--light-bg); padding: 30px; border-radius: var(--border-radius);">
+          <h2 style="margin-bottom: 30px;">Volunteer Registration</h2>
+          <form id="volunteerForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name *</label>
+                <input type="text" id="firstName" name="firstName" required>
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name *</label>
+                <input type="text" id="lastName" name="lastName" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="volunteeremail">Email Address *</label>
+              <input type="email" id="volunteeremail" name="email" required>
+            </div>
+
+            <div class="form-group">
+              <label for="volunteerPhone">Phone Number *</label>
+              <input type="tel" id="volunteerPhone" name="phone" placeholder="+91" required>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="state">State *</label>
+                <select id="state" name="state" required>
+                  <option value="">Select State</option>
+                  <option value="Telangana">Telangana</option>
+                  <option value="Andhra Pradesh">Andhra Pradesh</option>
+                  <option value="Maharashtra">Maharashtra</option>
+                  <option value="Karnataka">Karnataka</option>
+                  <option value="Tamil Nadu">Tamil Nadu</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="city">City *</label>
+                <input type="text" id="city" name="city" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="education">Education *</label>
+                <select id="education" name="education" required>
+                  <option value="">Select Education Level</option>
+                  <option value="10th Pass">10th Pass</option>
+                  <option value="12th Pass">12th Pass</option>
+                  <option value="Graduate">Graduate</option>
+                  <option value="Post-Graduate">Post-Graduate</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="profession">Profession *</label>
+                <input type="text" id="profession" name="profession" placeholder="Your profession" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="experience">Experience *</label>
+              <select id="experience" name="experience" required>
+                <option value="">Select Experience</option>
+                <option value="No Experience">No Experience</option>
+                <option value="1-2 Years">1-2 Years</option>
+                <option value="2-5 Years">2-5 Years</option>
+                <option value="5+ Years">5+ Years</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Skills (Select all that apply)</label>
+              <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+                <label style="display: flex; align-items: center; font-weight: normal;">
+                  <input type="checkbox" name="skills" value="First Aid"> First Aid
+                </label>
+                <label style="display: flex; align-items: center; font-weight: normal;">
+                  <input type="checkbox" name="skills" value="Swimming"> Swimming
+                </label>
+                <label style="display: flex; align-items: center; font-weight: normal;">
+                  <input type="checkbox" name="skills" value="Counseling"> Counseling
+                </label>
+                <label style="display: flex; align-items: center; font-weight: normal;">
+                  <input type="checkbox" name="skills" value="Language"> Multi-language
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="area">Area of Interest *</label>
+              <select id="area" name="area" required>
+                <option value="">Select Area</option>
+                <option value="Medical">Medical</option>
+                <option value="Search & Rescue">Search & Rescue</option>
+                <option value="Distribution">Distribution</option>
+                <option value="Rehabilitation">Rehabilitation</option>
+                <option value="Education">Education</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="availability">Availability *</label>
+              <select id="availability" name="availability" required>
+                <option value="">Select Availability</option>
+                <option value="Full-time">Full-time</option>
+                <option value="Part-time">Part-time</option>
+                <option value="Emergency Only">Emergency Only</option>
+              </select>
+            </div>
+
+            <div style="background: white; padding: 12px; border-left: 4px solid var(--accent-color); margin-bottom: 20px; font-size: 13px;">
+              <label style="display: flex; align-items: center; font-weight: normal;">
+                <input type="checkbox" id="agreeToTerms" name="agreeToTerms" required>
+                <span style="margin-left: 10px;">I agree to the <strong>Code of Conduct</strong> and <strong>Terms of Service</strong></span>
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-success" style="width: 100%; padding: 15px;">🤝 Register as Volunteer</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Volunteer Stats -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Our Volunteer Network</h2>
+      <div class="cards">
+        <div class="card">
+          <div class="card-image">👥</div>
+          <div class="card-body">
+            <h3 class="card-title">800+</h3>
+            <p class="card-text">Active Volunteers across all regions</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">🏆</div>
+          <div class="card-body">
+            <h3 class="card-title">50+</h3>
+            <p class="card-text">Disaster relief missions completed</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">🎓</div>
+          <div class="card-body">
+            <h3 class="card-title">1,000+</h3>
+            <p class="card-text">Hours of training provided</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Contact Info</h4>
+          <p>📞 <strong>+91 9949961938</strong></p>
+          <p>📧 <strong>info@yashwantngo.org</strong></p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="donate.html">Donate</a></li>
+            <li><a href="help.html">Get Help</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Yashwant Rural Development Society. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Loader -->
+  <div id="loader" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 9999;">
+    <div class="loader"></div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

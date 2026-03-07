@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Help - Yashwant Rural Development Society</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- Header & Navigation -->
+  <header>
+    <div class="navbar">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">🛟</div>
+        <div>YRDS</div>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="disaster-management.html">Disasters</a></li>
+          <li><a href="blog.html">News & Updates</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-buttons">
+        <a href="donate.html" class="btn btn-secondary">Donate</a>
+        <a href="volunteer.html" class="btn btn-primary">Volunteer</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Request Assistance</h1>
+    <p>We are here to help you in your time of need</p>
+  </section>
+
+  <!-- Emergency Contact Banner -->
+  <section style="background: #fff3cd; border-bottom: 3px solid var(--warning-color); padding: 20px;">
+    <div class="container">
+      <div style="text-align: center;">
+        <strong style="font-size: 18px; color: #856404;">🚨 EMERGENCY HELPLINE</strong><br>
+        <span style="font-size: 24px; color: var(--primary-color); font-weight: bold;">+91 9949961938</span><br>
+        <small style="color: #856404;">Available 24/7 for disaster emergencies</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- Help Request Form Section -->
+  <section class="section">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start;">
+        <!-- Left Side: Help Information -->
+        <div>
+          <h2 style="font-size: 32px; margin-bottom: 20px;">How We Can Help</h2>
+          <p style="margin-bottom: 20px; line-height: 1.8;">If you or your community is affected by a disaster, we provide comprehensive assistance including:</p>
+          
+          <h3 style="margin-top: 30px; margin-bottom: 15px;">Types of Assistance:</h3>
+          <ul style="list-style: none; margin-bottom: 30px;">
+            <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
+              <span style="position: absolute; left: 0; color: var(--primary-color); font-weight: bold;">🍽️</span>
+              <strong>Food & Water</strong> - Emergency rations and drinking water
+            </li>
+            <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
+              <span style="position: absolute; left: 0; color: var(--primary-color); font-weight: bold;">🏠</span>
+              <strong>Temporary Shelter</strong> - Safe accommodation
+            </li>
+            <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
+              <span style="position: absolute; left: 0; color: var(--primary-color); font-weight: bold;">🏥</span>
+              <strong>Medical Care</strong> - Healthcare and first aid
+            </li>
+            <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
+              <span style="position: absolute; left: 0; color: var(--primary-color); font-weight: bold;">🧠</span>
+              <strong>Psychological Support</strong> - Counseling and mental health services
+            </li>
+            <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
+              <span style="position: absolute; left: 0; color: var(--primary-color); font-weight: bold;">📚</span>
+              <strong>Education Support</strong> - Help for children
+            </li>
+            <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
+              <span style="position: absolute; left: 0; color: var(--primary-color); font-weight: bold;">💼</span>
+              <strong>Livelihood Restoration</strong> - Employment assistance
+            </li>
+          </ul>
+
+          <h3 style="margin-bottom: 15px;">Relief Camp Information:</h3>
+          <div style="background: #f0f7ff; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+            <p><strong>Active Relief Camps:</strong> 12 camps across 8 districts</p>
+            <p><strong>Beneficiaries Served:</strong> 5,000+ people</p>
+            <p><strong>Next Update:</strong> Updates provided daily at 6 PM</p>
+          </div>
+        </div>
+
+        <!-- Right Side: Help Request Form -->
+        <div style="background: var(--light-bg); padding: 30px; border-radius: var(--border-radius);">
+          <h2 style="margin-bottom: 30px;">Submit Help Request</h2>
+          <form id="helpForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="helpFirstName">First Name *</label>
+                <input type="text" id="helpFirstName" name="firstName" required>
+              </div>
+              <div class="form-group">
+                <label for="helpLastName">Last Name *</label>
+                <input type="text" id="helpLastName" name="lastName" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="helpEmail">Email Address *</label>
+              <input type="email" id="helpEmail" name="email" required>
+            </div>
+
+            <div class="form-group">
+              <label for="helpPhone">Phone Number *</label>
+              <input type="tel" id="helpPhone" name="phone" placeholder="+91" required>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="helpState">State *</label>
+                <select id="helpState" name="state" required>
+                  <option value="">Select State</option>
+                  <option value="Telangana">Telangana</option>
+                  <option value="Andhra Pradesh">Andhra Pradesh</option>
+                  <option value="Maharashtra">Maharashtra</option>
+                  <option value="Karnataka">Karnataka</option>
+                  <option value="Tamil Nadu">Tamil Nadu</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="helpCity">City/District *</label>
+                <input type="text" id="helpCity" name="city" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="disasterType">Type of Disaster *</label>
+              <select id="disasterType" name="disasterType" required>
+                <option value="">Select Disaster Type</option>
+                <option value="Earthquake">Earthquake</option>
+                <option value="Flood">Flood</option>
+                <option value="Cyclone">Cyclone</option>
+                <option value="Drought">Drought</option>
+                <option value="Tsunami">Tsunami</option>
+                <option value="Fire">Fire</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Type of Help Needed (Select all that apply) *</label>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <label style="display: flex; align-items: center; font-weight: normal;">
+                  <input type="checkbox" name="helpNeeded" value="Food & Water"> Food & Water
+                </label>
+                <label style="display: flex; align-items: center; font-weight: normal;">
+                  <input type="checkbox" name="helpNeeded" value="Shelter"> Shelter
+                </label>
+                <label style="display: flex; align-items: center; font-weight: normal;">
+                  <input type="checkbox" name="helpNeeded" value="Medical"> Medical
+                </label>
+                <label style="display: flex; align-items: center; font-weight: normal;">
+                  <input type="checkbox" name="helpNeeded" value="Counseling"> Counseling
+                </label>
+                <label style="display: flex; align-items: center; font-weight: normal;">
+                  <input type="checkbox" name="helpNeeded" value="Education"> Education
+                </label>
+                <label style="display: flex; align-items: center; font-weight: normal;">
+                  <input type="checkbox" name="helpNeeded" value="Livelihood"> Livelihood
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="familySize">Family Size *</label>
+              <input type="number" id="familySize" name="familySize" min="1" required>
+            </div>
+
+            <div class="form-group">
+              <label for="description">Describe Your Situation *</label>
+              <textarea id="description" name="description" placeholder="Please provide details about your situation..." required></textarea>
+            </div>
+
+            <div style="background: white; padding: 12px; border-left: 4px solid var(--accent-color); margin-bottom: 20px; font-size: 13px;">
+              <strong>Note:</strong> Your request will be reviewed by our team. You will receive updates via phone and email. Emergency requests are prioritized.
+            </div>
+
+            <button type="submit" class="btn btn-success" style="width: 100%; padding: 15px;">📋 Submit Help Request</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Relief Camps Information -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Active Relief Camps</h2>
+      <div class="cards">
+        <div class="card">
+          <div class="card-image">🏕️</div>
+          <div class="card-body">
+            <h3 class="card-title">Telangana Relief Camps</h3>
+            <p class="card-text"><strong>4 camps</strong> providing food, shelter, and medical aid</p>
+            <p style="color: #7f8c8d; font-size: 13px;">Updated: Today 6 PM</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">🏕️</div>
+          <div class="card-body">
+            <h3 class="card-title">Andhra Pradesh Relief Camps</h3>
+            <p class="card-text"><strong>5 camps</strong> actively serving affected communities</p>
+            <p style="color: #7f8c8d; font-size: 13px;">Updated: Today 6 PM</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-image">🏕️</div>
+          <div class="card-body">
+            <h3 class="card-title">Maharashtra Relief Camps</h3>
+            <p class="card-text"><strong>3 camps</strong> with comprehensive support services</p>
+            <p style="color: #7f8c8d; font-size: 13px;">Updated: Today 6 PM</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Emergency Contact</h4>
+          <p><strong>Helpline:</strong> +91 9949961938</p>
+          <p><strong>WhatsApp:</strong> +91 9949961938</p>
+          <p><strong>Email:</strong> help@yashwantngo.org</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Help Guide</h4>
+          <ul>
+            <li><a href="#helpForm">Submit Help Request</a></li>
+            <li><a href="preparedness.html">Preparedness Tips</a></li>
+            <li><a href="disaster-management.html">Disaster Info</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Yashwant Rural Development Society. All rights reserved. | In Crisis: Call 9949961938</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Loader -->
+  <div id="loader" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 9999;">
+    <div class="loader"></div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
