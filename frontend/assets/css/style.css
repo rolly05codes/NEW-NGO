@@ -306,7 +306,9 @@ nav a:hover {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23e74c3c" width="1200" height="600"/><path fill="%232c3e50" opacity="0.1" d="M0 300 Q300 200 600 300 T1200 300 L1200 600 L0 600 Z"/></svg>');
+  /* Replace the URL below with your own hero background image.
+     Put the image file in frontend/assets/images and name it hero-bg.jpg */
+  background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('assets/images/hero-bg.jpg');
   background-size: cover;
   background-position: center;
   color: white;
