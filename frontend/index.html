@@ -4,12 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yashwant Rural Development Society - Disaster Management & Relief</title>
+  <meta name="description" content="Yashwant Rural Development Society - Dedicated to disaster relief, recovery, and community rebuilding across India.">
+  <meta property="og:title" content="Yashwant Rural Development Society">
+  <meta property="og:description" content="Saving lives, rebuilding communities - Disaster management and relief organization">
+  <meta property="og:image" content="assets/images/disrec1.jpg">
+  <meta property="og:url" content="https://yashwantngo.vercel.app">
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+
+  <!-- External Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.0.8/countUp.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/animations.css">
 </head>
 <body>
   <!-- Header & Navigation -->
-  <header>
+  <header class="glass-header">
     <div class="navbar">
       <a href="index.html" class="logo">
         <div class="logo-icon">🛟</div>
@@ -25,42 +39,52 @@
         </ul>
       </nav>
       <div class="nav-buttons">
-        <a href="donate.html" class="btn btn-secondary">Donate</a>
-        <a href="volunteer.html" class="btn btn-primary">Volunteer</a>
+        <a href="donate.html" class="btn btn-secondary glass-btn">Donate</a>
+        <a href="volunteer.html" class="btn btn-primary glass-btn">Volunteer</a>
+        <button id="themeToggle" class="theme-toggle" title="Toggle Dark Mode">
+          <span id="themeIcon">🌙</span>
+        </button>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero Section with Video Background -->
   <section class="hero">
-    <h1>Saving Lives, Rebuilding Communities</h1>
-    <p>Yashwant Rural Development Society - Dedicated to Disaster Relief & Recovery</p>
-    <div class="hero-cta">
-      <a href="donate.html" class="btn btn-secondary btn-lg">💰 Donate Now</a>
-      <a href="volunteer.html" class="btn btn-secondary btn-lg">🤝 Become a Volunteer</a>
-      <a href="help.html" class="btn btn-secondary btn-lg">🆘 Get Help</a>
+    <video autoplay muted loop class="hero-video" poster="assets/images/disrec1.jpg">
+      <source src="assets/videos/relief-work.mp4" type="video/mp4">
+      <!-- Browser doesn't support video, show fallback -->
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 id="typed-text"></h1>
+      <p>Yashwant Rural Development Society - Dedicated to Disaster Relief & Recovery</p>
+      <div class="hero-cta">
+        <a href="donate.html" class="btn btn-secondary btn-lg glass-btn">💰 Donate Now</a>
+        <a href="volunteer.html" class="btn btn-secondary btn-lg glass-btn">🤝 Become a Volunteer</a>
+        <a href="help.html" class="btn btn-secondary btn-lg glass-btn">🆘 Get Help</a>
+      </div>
     </div>
   </section>
 
   <!-- Impact Statistics -->
-  <section class="section">
+  <section class="section" data-aos="fade-up">
     <div class="container">
       <h2 class="section-title">Our Impact</h2>
-      <div class="stats" id="donationStats">
-        <div class="stat-card pulse-animation">
-          <div class="stat-number">2,500+</div>
+      <div class="stats" id="impactStats">
+        <div class="stat-card pulse-animation" data-target="2500">
+          <div class="stat-number" data-count="0">0</div>
           <div class="stat-label">Lives Helped</div>
         </div>
-        <div class="stat-card pulse-animation">
-          <div class="stat-number">50+</div>
+        <div class="stat-card pulse-animation" data-target="50">
+          <div class="stat-number" data-count="0">0</div>
           <div class="stat-label">Areas Covered</div>
         </div>
-        <div class="stat-card pulse-animation">
-          <div class="stat-number">800+</div>
+        <div class="stat-card pulse-animation" data-target="800">
+          <div class="stat-number" data-count="0">0</div>
           <div class="stat-label">Active Volunteers</div>
         </div>
-        <div class="stat-card pulse-animation">
-          <div class="stat-number">₹5Cr+</div>
+        <div class="stat-card pulse-animation" data-target="500000000">
+          <div class="stat-number" data-count="0">₹0</div>
           <div class="stat-label">Relief Provided</div>
         </div>
       </div>
@@ -163,15 +187,52 @@
     </div>
   </section>
 
+  <!-- Financial Transparency -->
+  <section class="section section-alt" data-aos="fade-up">
+    <div class="container">
+      <h2 class="section-title">Financial Transparency</h2>
+      <p class="text-center" style="margin-bottom: 40px;">100% of your donations go directly to relief work</p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; align-items: center;">
+        <div class="transparency-chart">
+          <canvas id="transparencyChart" width="250" height="250"></canvas>
+        </div>
+        <div class="transparency-details">
+          <div class="transparency-item">
+            <div class="transparency-label">
+              <span class="transparency-color" style="background: #e74c3c;"></span>
+              <span>Field Work & Relief (80%)</span>
+            </div>
+            <div class="transparency-desc">Direct disaster response, medical aid, and community rehabilitation</div>
+          </div>
+          <div class="transparency-item">
+            <div class="transparency-label">
+              <span class="transparency-color" style="background: #3498db;"></span>
+              <span>Logistics & Supplies (15%)</span>
+            </div>
+            <div class="transparency-desc">Emergency supplies, transportation, and equipment</div>
+          </div>
+          <div class="transparency-item">
+            <div class="transparency-label">
+              <span class="transparency-color" style="background: #27ae60;"></span>
+              <span>Administration (5%)</span>
+            </div>
+            <div class="transparency-desc">Essential operations and coordination</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Disaster Recovery Framework -->
-  <section class="section section-blue">
+  <section class="section section-blue" data-aos="fade-up">
     <div class="container">
       <h2 class="section-title">Disaster Recovery & Management Framework</h2>
       <p class="text-center" style="margin-bottom: 40px; font-size: 16px; line-height: 1.6;">Our comprehensive approach to disaster management covers all phases from prevention to recovery</p>
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 40px;">
         <!-- Prevention & Preparedness -->
-        <div style="background: white; padding: 30px; border-radius: var(--border-radius); box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
+        <div class="recovery-card hover-lift" data-aos="zoom-in" data-aos-delay="100">
           <div style="font-size: 40px; margin-bottom: 15px;">🛡️</div>
           <h3 style="color: var(--primary-color); margin-bottom: 10px;">Prevention & Preparedness</h3>
           <p style="color: #555; line-height: 1.6; margin-bottom: 15px;">Early warning systems, community training, disaster drills, and awareness campaigns to build community resilience</p>
@@ -184,7 +245,7 @@
         </div>
 
         <!-- Response & Relief -->
-        <div style="background: white; padding: 30px; border-radius: var(--border-radius); box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
+        <div class="recovery-card hover-lift" data-aos="zoom-in" data-aos-delay="200">
           <div style="font-size: 40px; margin-bottom: 15px;">🚨</div>
           <h3 style="color: var(--primary-color); margin-bottom: 10px;">Response & Relief</h3>
           <p style="color: #555; line-height: 1.6; margin-bottom: 15px;">Immediate action during disaster to save lives, provide emergency shelter, food, water, and medical assistance</p>
@@ -197,7 +258,7 @@
         </div>
 
         <!-- Recovery & Rehabilitation -->
-        <div style="background: white; padding: 30px; border-radius: var(--border-radius); box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
+        <div class="recovery-card hover-lift" data-aos="zoom-in" data-aos-delay="300">
           <div style="font-size: 40px; margin-bottom: 15px;">🏗️</div>
           <h3 style="color: var(--primary-color); margin-bottom: 10px;">Recovery & Rehabilitation</h3>
           <p style="color: #555; line-height: 1.6; margin-bottom: 15px;">Medium-term reconstruction of infrastructure, psycho-social support, and restoring normal life conditions</p>
@@ -210,7 +271,7 @@
         </div>
 
         <!-- Development & Resilience -->
-        <div style="background: white; padding: 30px; border-radius: var(--border-radius); box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s ease;">
+        <div class="recovery-card hover-lift" data-aos="zoom-in" data-aos-delay="400">
           <div style="font-size: 40px; margin-bottom: 15px;">📈</div>
           <h3 style="color: var(--primary-color); margin-bottom: 10px;">Development & Resilience</h3>
           <p style="color: #555; line-height: 1.6; margin-bottom: 15px;">Long-term development with disaster-resistant structures, livelihood support, and building a resilient society</p>
@@ -382,11 +443,228 @@
     </div>
   </footer>
 
+  <!-- Floating Elements -->
+  <!-- Quick Donate Button -->
+  <a href="donate.html" class="floating-donate-btn" title="Quick Donate">
+    <span class="donate-icon">💝</span>
+    <span class="donate-text">Donate</span>
+  </a>
+
+  <!-- WhatsApp Integration -->
+  <a href="https://wa.me/919949961938?text=Hi%20YRDS,%20I%20want%20to%20help%20with%20disaster%20relief" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+    <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp" width="24" height="24">
+  </a>
+
+  <!-- Donation Feed -->
+  <div id="donationFeed" class="donation-feed">
+    <div class="donation-notification">
+      <span class="donation-icon">💰</span>
+      <span class="donation-text">Someone from <strong>Mumbai</strong> just donated <strong>₹1,000</strong></span>
+    </div>
+  </div>
+
   <!-- Loader -->
   <div id="loader" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 9999;">
     <div class="loader"></div>
   </div>
 
   <script src="assets/js/main.js"></script>
+
+  <!-- Custom JavaScript for Enhanced Features -->
+  <script>
+    // Initialize AOS (Animate on Scroll)
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100
+    });
+
+    // Dynamic Typing Effect
+    const typed = new Typed('#typed-text', {
+      strings: [
+        'Saving Lives',
+        'Rebuilding Homes',
+        'Restoring Hope',
+        'Building Resilience'
+      ],
+      typeSpeed: 80,
+      backSpeed: 50,
+      backDelay: 2000,
+      loop: true,
+      showCursor: true,
+      cursorChar: '|'
+    });
+
+    // Animated Counters
+    function animateCounters() {
+      const counters = document.querySelectorAll('.stat-number');
+      const speed = 200;
+
+      counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const count = parseInt(counter.innerText.replace(/[^\d]/g, ''));
+        const increment = target / speed;
+
+        if (count < target) {
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(animateCounters, 1);
+        } else {
+          if (target >= 100000000) { // For ₹5Cr+
+            counter.innerText = '₹5Cr+';
+          } else if (target >= 1000) {
+            counter.innerText = target.toLocaleString('en-IN');
+          } else {
+            counter.innerText = target;
+          }
+        }
+      });
+    }
+
+    // Intersection Observer for counter animation
+    const observerOptions = {
+      threshold: 0.5,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounters();
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Observe the stats section
+    const statsSection = document.getElementById('impactStats');
+    if (statsSection) {
+      observer.observe(statsSection);
+    }
+
+    // Transparency Chart
+    const ctx = document.getElementById('transparencyChart');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Field Work & Relief', 'Logistics & Supplies', 'Administration'],
+          datasets: [{
+            data: [80, 15, 5],
+            backgroundColor: ['#e74c3c', '#3498db', '#27ae60'],
+            borderWidth: 0
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false
+            },
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  return context.label + ': ' + context.parsed + '%';
+                }
+              }
+            }
+          }
+        }
+      });
+    }
+
+    // Dark Mode Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const body = document.body;
+
+    // Check for saved theme preference
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme) {
+      body.classList.add(currentTheme);
+      themeIcon.textContent = currentTheme === 'dark-mode' ? '☀️' : '🌙';
+    }
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      const theme = body.classList.contains('dark-mode') ? 'dark-mode' : 'light-mode';
+      localStorage.setItem('theme', theme);
+      themeIcon.textContent = theme === 'dark-mode' ? '☀️' : '🌙';
+    });
+
+    // Donation Feed
+    function showDonationFeed() {
+      const feed = document.getElementById('donationFeed');
+      const cities = ['Mumbai', 'Delhi', 'Bangalore', 'Chennai', 'Hyderabad', 'Pune', 'Kolkata', 'Ahmedabad'];
+      const amounts = ['₹500', '₹1,000', '₹2,000', '₹5,000', '₹10,000'];
+
+      const randomCity = cities[Math.floor(Math.random() * cities.length)];
+      const randomAmount = amounts[Math.floor(Math.random() * amounts.length)];
+
+      const notification = feed.querySelector('.donation-notification');
+      notification.querySelector('.donation-text').innerHTML = `Someone from <strong>${randomCity}</strong> just donated <strong>${randomAmount}</strong>`;
+
+      feed.classList.add('show');
+
+      setTimeout(() => {
+        feed.classList.remove('show');
+      }, 4000);
+
+      // Schedule next donation notification
+      setTimeout(showDonationFeed, Math.random() * 30000 + 15000); // 15-45 seconds
+    }
+
+    // Start donation feed after 10 seconds
+    setTimeout(showDonationFeed, 10000);
+
+    // Skeleton Loading for News Section
+    function loadNews() {
+      const blogPosts = document.getElementById('blogPosts');
+      const skeletonCard = blogPosts.querySelector('.card');
+
+      // Simulate loading delay
+      setTimeout(() => {
+        skeletonCard.innerHTML = `
+          <div class="card-image">📰</div>
+          <div class="card-body">
+            <span class="badge badge-primary">Latest</span>
+            <h3 class="card-title">Flood Relief Operations in Telangana</h3>
+            <p class="card-text">Our team successfully provided emergency relief to 500 families affected by recent floods...</p>
+            <a href="blog.html" class="btn btn-primary btn-sm">Read More</a>
+          </div>
+        `;
+      }, 2000);
+    }
+
+    loadNews();
+
+    // Hover effects for recovery cards
+    document.querySelectorAll('.recovery-card').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-10px) scale(1.02)';
+        this.style.boxShadow = '0 15px 30px rgba(0,0,0,0.2)';
+      });
+
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
+        this.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+      });
+    });
+
+    // Video fallback handling
+    const heroVideo = document.querySelector('.hero-video');
+
+    if (heroVideo) {
+      heroVideo.addEventListener('error', function() {
+        // Video failed to load, hero section will use animated gradient background
+        console.log('Video failed to load, using gradient background');
+      });
+
+      heroVideo.addEventListener('canplay', function() {
+        // Video loaded successfully
+        this.style.opacity = '0.7';
+      });
+    }
+  </script>
 </body>
 </html>

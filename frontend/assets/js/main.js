@@ -3,13 +3,42 @@ const API_BASE_URL = 'http://localhost:5000/api';
 
 // Utility Functions
 const showAlert = (message, type = 'success') => {
+  console.log('showAlert called with:', message, type); // Debug log
   const alertDiv = document.createElement('div');
-  alertDiv.className = `alert alert-${type}`;
+  alertDiv.className = `fixed-alert fixed-alert-${type}`;
   alertDiv.textContent = message;
-  document.body.insertBefore(alertDiv, document.body.firstChild);
-  
+  alertDiv.style.cssText = `
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    padding: 15px 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    min-width: 300px;
+    text-align: center;
+    border: none;
+    margin: 0;
+  `;
+
+  if (type === 'success') {
+    alertDiv.style.backgroundColor = '#27ae60';
+  } else if (type === 'error') {
+    alertDiv.style.backgroundColor = '#e74c3c';
+  } else {
+    alertDiv.style.backgroundColor = '#3498db';
+  }
+
+  document.body.appendChild(alertDiv);
+
+  // Auto-remove after 5 seconds
   setTimeout(() => {
-    alertDiv.remove();
+    if (alertDiv.parentNode) {
+      alertDiv.remove();
+    }
   }, 5000);
 };
 
@@ -32,8 +61,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Volunteer Registration Form
   const volunteerForm = document.getElementById('volunteerForm');
   if (volunteerForm) {
+    console.log('Volunteer form found'); // Debug log
     volunteerForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+      console.log('Form submitted'); // Debug log
       showLoader(true);
 
       const skills = Array.from(document.querySelectorAll('input[name="skills"]:checked')).map(el => el.value);
@@ -54,18 +85,25 @@ document.addEventListener('DOMContentLoaded', () => {
         agreeToTerms: document.getElementById('agreeToTerms').checked
       };
 
+      console.log('Form data:', formData); // Debug log
+
       try {
+        console.log('Making API call to:', `${API_BASE_URL}/volunteers`); // Debug log
         const response = await fetch(`${API_BASE_URL}/volunteers`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(formData)
         });
 
+        console.log('Response status:', response.status); // Debug log
         const data = await response.json();
+        console.log('API Response:', data); // Debug log
         if (data.success) {
+          console.log('Showing success message'); // Debug log
           showAlert('Registration Successful! Your application is under review.', 'success');
           volunteerForm.reset();
         } else {
+          console.log('Showing error message:', data.message); // Debug log
           showAlert(data.message, 'error');
         }
       } catch (error) {
