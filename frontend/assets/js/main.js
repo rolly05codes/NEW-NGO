@@ -164,7 +164,76 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Load donation stats
   displayDonationStats();
+
+  // Initialize CountUp animations for impact statistics
+  initializeCountUpAnimations();
 });
+
+// Initialize CountUp Animations for Impact Statistics
+function initializeCountUpAnimations() {
+  const observerOptions = {
+    threshold: 0.5,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const statCards = entry.target.querySelectorAll('.stat-card');
+        statCards.forEach((card, index) => {
+          setTimeout(() => {
+            animateCounter(card);
+          }, index * 200); // Stagger animations
+        });
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  const impactStats = document.getElementById('impactStats');
+  if (impactStats) {
+    observer.observe(impactStats);
+  }
+}
+
+// Animate individual counter
+function animateCounter(card) {
+  const numberElement = card.querySelector('.stat-number');
+  const targetValue = parseInt(card.dataset.target);
+  const isCurrency = numberElement.textContent.includes('₹');
+
+  if (!targetValue || isNaN(targetValue)) return;
+
+  let currentValue = 0;
+  const duration = 2000; // 2 seconds
+  const increment = targetValue / (duration / 16); // 60fps
+
+  const animate = () => {
+    currentValue += increment;
+    if (currentValue >= targetValue) {
+      currentValue = targetValue;
+    }
+
+    if (isCurrency) {
+      // Format currency values
+      if (targetValue >= 10000000) { // 1 crore
+        numberElement.textContent = `₹${(currentValue / 10000000).toFixed(1)}Cr`;
+      } else if (targetValue >= 100000) { // 1 lakh
+        numberElement.textContent = `₹${(currentValue / 100000).toFixed(1)}L`;
+      } else {
+        numberElement.textContent = `₹${Math.floor(currentValue).toLocaleString('en-IN')}`;
+      }
+    } else {
+      numberElement.textContent = Math.floor(currentValue).toLocaleString('en-IN');
+    }
+
+    if (currentValue < targetValue) {
+      requestAnimationFrame(animate);
+    }
+  };
+
+  animate();
+}
 
 // Display Donation Statistics
 async function displayDonationStats() {
