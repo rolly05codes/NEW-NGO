@@ -306,10 +306,9 @@ nav a:hover {
 
 /* Hero Section */
 .hero {
-  /* Default hero background image (remote). Replace with local file if desired. */
-  background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('https://images.unsplash.com/photo-1504712598893-24159a89200e?auto=format&fit=crop&w=1600&q=80');
-  /* If you want to use a local image, place it in frontend/assets/images and uncomment the next line: */
-  /* background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('assets/images/hero-bg.jpg'); */
+  /* Replace the URL below with your own hero background image.
+     Put the image file in frontend/assets/images and name it hero-bg.jpg */
+  background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('assets/images/hero-bg.jpg');
   background-size: cover;
   background-position: center;
   color: white;
